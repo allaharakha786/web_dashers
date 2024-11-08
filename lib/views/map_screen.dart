@@ -7,6 +7,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:web_dasher/controllers/utills/app_colors.dart';
 import 'package:web_dasher/controllers/utills/app_textStyles.dart';
+import 'package:web_dasher/views/widgets/small_common_button.dart';
 
 class MapViewScreen extends StatefulWidget {
   MapViewScreen({
@@ -145,7 +146,7 @@ class _MapViewScreenState extends State<MapViewScreen> {
 
                 // Positioned widget on top of the map
                 Positioned(
-                  bottom: 20, // Adjust as needed
+                  bottom: 10, // Adjust as needed
                   left: 0,
                   right: 0,
                   child: Padding(
@@ -158,9 +159,9 @@ class _MapViewScreenState extends State<MapViewScreen> {
                       },
                       child: Container(
                         padding: EdgeInsets.only(right: 2.w, top: 10, bottom: 10, left: 8),
+                        margin: EdgeInsets.all(8),
                         decoration: BoxDecoration(
                           color: Colors.white,
-                          border: Border.all(color: AppColors.blackColor),
                           borderRadius: BorderRadius.circular(10),
                           boxShadow: [
                             BoxShadow(
@@ -174,49 +175,84 @@ class _MapViewScreenState extends State<MapViewScreen> {
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Image.asset(
-                              "assets/pngs/map_item_img.png",
-                              height: 100,
+                            Container(
+                              height: mediaQuerySize.height * 0.19,
                               width: 120,
-                              fit: BoxFit.cover,
+                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), image: DecorationImage(image: AssetImage("assets/pngs/map_item_img.png"))),
                             ),
                             SizedBox(width: 2.h),
                             Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    children: [
-                                      RatingBar(
-                                        filledIcon: Icons.star,
-                                        filledColor: AppColors.ratingColor,
-                                        size: 18,
-                                        emptyIcon: Icons.star_border,
-                                        onRatingChanged: (value) => debugPrint('$value'),
-                                        initialRating: 5,
-                                        maxRating: 5,
-                                      ),
-                                      SizedBox(width: 1.h),
-                                      Text("5.0", style: AppTextStyles().lightTextStyle()),
-                                    ],
-                                  ),
-                                  SizedBox(height: 1.5.h),
-                                  Text(
-                                    "4U Store Kuwait",
-                                    style: AppTextStyles().mediumTextStyle(fontSize: 14),
-                                  ),
-                                  SizedBox(height: 1.5.h),
-                                  Text(
-                                    "A5mall, Shuwaikh industrial, Kuwait",
-                                    style: TextStyle(
-                                      fontSize: 12.sp,
-                                      color: Colors.grey,
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        RatingBar(
+                                          filledIcon: Icons.star,
+                                          filledColor: AppColors.ratingColor,
+                                          size: 18,
+                                          emptyIcon: Icons.star_border,
+                                          onRatingChanged: (value) => debugPrint('$value'),
+                                          initialRating: 5,
+                                          maxRating: 5,
+                                        ),
+                                        SizedBox(width: 1.h),
+                                        Text("5.0", style: AppTextStyles().lightTextStyle()),
+                                        Spacer(),
+                                        Padding(
+                                          padding: const EdgeInsets.only(right: 9.0),
+                                          child: Icon(Icons.share),
+                                        )
+                                      ],
                                     ),
-                                    textAlign: TextAlign.left,
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ],
+                                    SizedBox(height: mediaQuerySize.height * 0.004.h),
+                                    Text(
+                                      "4U Store Kuwait",
+                                      style: AppTextStyles().mediumTextStyle(fontSize: 14),
+                                    ),
+                                    SizedBox(height: mediaQuerySize.height * 0.004.h),
+                                    Text(
+                                      "A5mall, Shuwaikh industrial, Kuwait",
+                                      style: TextStyle(
+                                        fontSize: 12.sp,
+                                        color: Colors.grey,
+                                      ),
+                                      textAlign: TextAlign.left,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                    SizedBox(height: mediaQuerySize.height * 0.004.h),
+                                    SmallCommonButton(
+                                      title: 'Open',
+                                      color: Colors.transparent,
+                                      isBorder: true,
+                                      borderColor: Colors.green,
+                                      textColor: Colors.green,
+                                    ),
+                                    SizedBox(height: mediaQuerySize.height * 0.008.h),
+                                    Row(
+                                      children: [
+                                        SmallCommonButton(
+                                          iconImageUrl: 'assets/pngs/buy_img.png',
+                                          title: 'Buy',
+                                          isIcon: true,
+                                          isBorder: false,
+                                          textColor: AppColors.whiteColor,
+                                        ),
+                                        SizedBox(width: mediaQuerySize.height * 0.008.h),
+                                        SmallCommonButton(
+                                          isIcon: true,
+                                          iconImageUrl: 'assets/pngs/pickup_img.png',
+                                          title: 'Pickup',
+                                          isBorder: false,
+                                          textColor: Colors.white,
+                                        )
+                                      ],
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
                           ],
