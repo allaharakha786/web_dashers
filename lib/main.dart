@@ -24,6 +24,6 @@ class MyApp extends StatelessWidget {
               mediaQuerySize.width,
               mediaQuerySize.height,
             ),
-            child: SplashScreen()));
+            child: HomeScreen()));
   }
 }
