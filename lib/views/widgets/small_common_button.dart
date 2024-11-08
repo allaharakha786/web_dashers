@@ -10,22 +10,27 @@ class SmallCommonButton extends StatelessWidget {
   String? iconImageUrl;
   bool? isBorder;
   Color? borderColor;
+  Color? textColor;
 
-  SmallCommonButton({super.key, this.color, this.iconImageUrl, this.isIcon, this.title, this.isBorder});
+  SmallCommonButton({super.key, this.color, this.iconImageUrl, this.isIcon, this.title, this.isBorder, this.textColor, this.borderColor});
 
   @override
   Widget build(BuildContext context) {
     Size mediaQuerySize = MediaQuery.of(context).size;
 
     return Container(
-      height: mediaQuerySize.height * 0.03.h,
-      width: mediaQuerySize.width * 0.1.w,
-      decoration: BoxDecoration(
-        color: color ?? AppColors.primaryColor,
-        borderRadius: BorderRadius.circular(10.sp),
-      ),
+      height: mediaQuerySize.height * 0.035.h,
+      width: mediaQuerySize.width * 0.2.w,
+      decoration: BoxDecoration(color: color ?? AppColors.primaryColor, borderRadius: BorderRadius.circular(10.sp), border: isBorder ?? false ? Border.all(color: borderColor ?? AppColors.blackColor) : null),
       child: Row(
-        children: [SizedBox(height: mediaQuerySize.height * 0.015.h, width: mediaQuerySize.width * 0.05.w, child: Image.asset(iconImageUrl ?? ''))],
+        mainAxisAlignment: isIcon ?? false ? MainAxisAlignment.center : MainAxisAlignment.start,
+        children: [
+          SizedBox(height: mediaQuerySize.height * 0.015.h, width: mediaQuerySize.width * 0.05.w, child: isIcon ?? false ? Image.asset(iconImageUrl ?? '') : null),
+          Text(
+            title ?? '',
+            style: AppTextStyles().lightTextStyle(color: textColor ?? AppColors.blackColor),
+          )
+        ],
       ),
     );
   }
