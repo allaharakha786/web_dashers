@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:web_dasher/views/splash_screen.dart';
 
 import 'views/home_screen.dart';
 
@@ -14,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size mediaQuerySize = MediaQuery.of(context).size;
-    return MaterialApp(
+    return GetMaterialApp(
         home: ScreenUtilInit(
             minTextAdapt: true,
             splitScreenMode: true,
@@ -22,6 +24,6 @@ class MyApp extends StatelessWidget {
               mediaQuerySize.width,
               mediaQuerySize.height,
             ),
-            child: HomeScreen()));
+            child: SplashScreen()));
   }
 }
