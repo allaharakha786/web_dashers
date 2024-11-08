@@ -1,11 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:web_dasher/views/controllers/utills/app_colors.dart';
+import 'package:get/get.dart';
+import 'package:web_dasher/controllers/utills/app_colors.dart';
+import 'package:web_dasher/views/on_boarding_screen.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
   @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  @override
+  void initState() {
+    Future.delayed(
+      Duration(
+        seconds: 3,
+      ),
+      () {
+        Get.to(() => OnBoardingScreen());
+      },
+    );
+    super.initState();
+  }
+
   Widget build(BuildContext context) {
     Size mediaQuerySize = MediaQuery.of(context).size;
 
