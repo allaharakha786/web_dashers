@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:web_dasher/views/myorder_screen.dart';
+import 'package:web_dasher/views/pickupscreen.dart';
 import 'package:web_dasher/views/splash_screen.dart';
 
 import 'views/home_screen.dart';
@@ -24,6 +26,6 @@ class MyApp extends StatelessWidget {
               mediaQuerySize.width,
               mediaQuerySize.height,
             ),
-            child: SplashScreen()));
+            child: PickupScreen()));
   }
 }
