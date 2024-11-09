@@ -4,10 +4,7 @@ import 'package:web_dasher/controllers/utills/app_colors.dart';
 import 'package:web_dasher/controllers/utills/app_textStyles.dart';
 import 'package:web_dasher/views/widgets/common_widgets.dart';
 
-void showCustomBottomSheet(BuildContext context,
-    {String title = "Your Text Here",
-    required VoidCallback onButton1Pressed,
-    required VoidCallback onButton2Pressed}) {
+void showCustomBottomSheet(BuildContext context, {String title = "Your Text Here", required VoidCallback onButton1Pressed, required VoidCallback onButton2Pressed}) {
   showModalBottomSheet(
     context: context,
     shape: const RoundedRectangleBorder(
@@ -70,10 +67,7 @@ void ShowPickupAddItemBottomSheet(BuildContext context, bool isPickupAnything) {
                   color: AppColors.blueGrey,
                   borderRadius: BorderRadius.circular(10.0), // Circular corners
                 ),
-                child: Text(
-                    "Our agent will update you, if price is different from estimate or items are not available",
-                    style: AppTextStyles()
-                        .mediumTextStyle(fontSize: 14, color: Colors.black)),
+                child: Text("Our agent will update you, if price is different from estimate or items are not available", style: AppTextStyles().mediumTextStyle(fontSize: 14, color: Colors.black)),
               ),
               SizedBox(
                 height: 20,
@@ -94,11 +88,8 @@ void ShowPickupAddItemBottomSheet(BuildContext context, bool isPickupAnything) {
                         decoration: BoxDecoration(
                           // border: Border.all(
                           //     width: 0.5, color: AppColors.primaryColor1),
-                          color: isPickupAnything
-                              ? AppColors.greyColor
-                              : AppColors.primaryColor1,
-                          borderRadius:
-                              BorderRadius.circular(20.0), // Circular corners
+                          color: isPickupAnything ? AppColors.greyColor : AppColors.primaryColor1,
+                          borderRadius: BorderRadius.circular(20.0), // Circular corners
                         ),
                         child: GestureDetector(
                           onTap: () {
@@ -112,16 +103,9 @@ void ShowPickupAddItemBottomSheet(BuildContext context, bool isPickupAnything) {
                                 "assets/pngs/bag.png",
                                 width: 15,
                                 height: 15,
-                                color: isPickupAnything
-                                    ? Colors.black
-                                    : Colors.white,
+                                color: isPickupAnything ? Colors.black : Colors.white,
                               ),
-                              Text(" Buy Anything",
-                                  style: AppTextStyles().mediumTextStyle(
-                                      fontSize: 12,
-                                      color: isPickupAnything
-                                          ? Colors.black
-                                          : Colors.white)),
+                              Text(" Buy Anything", style: AppTextStyles().mediumTextStyle(fontSize: 12, color: isPickupAnything ? Colors.black : Colors.white)),
                             ],
                           ),
                         ),
@@ -134,11 +118,8 @@ void ShowPickupAddItemBottomSheet(BuildContext context, bool isPickupAnything) {
                         decoration: BoxDecoration(
                           // border: Border.all(
                           //     width: 0.5, color: AppColors.greyColor),
-                          color: isPickupAnything
-                              ? AppColors.primaryColor1
-                              : AppColors.greyColor,
-                          borderRadius:
-                              BorderRadius.circular(20.0), // Circular corners
+                          color: isPickupAnything ? AppColors.primaryColor1 : AppColors.greyColor,
+                          borderRadius: BorderRadius.circular(20.0), // Circular corners
                         ),
                         child: GestureDetector(
                           onTap: () {
@@ -152,16 +133,9 @@ void ShowPickupAddItemBottomSheet(BuildContext context, bool isPickupAnything) {
                                 "assets/pngs/box.png",
                                 width: 15,
                                 height: 15,
-                                color: isPickupAnything
-                                    ? AppColors.whiteColor
-                                    : Colors.black,
+                                color: isPickupAnything ? AppColors.whiteColor : Colors.black,
                               ),
-                              Text(" Pickup Anything",
-                                  style: AppTextStyles().mediumTextStyle(
-                                      fontSize: 12,
-                                      color: isPickupAnything
-                                          ? AppColors.whiteColor
-                                          : Colors.black)),
+                              Text(" Pickup Anything", style: AppTextStyles().mediumTextStyle(fontSize: 12, color: isPickupAnything ? AppColors.whiteColor : Colors.black)),
                             ],
                           ),
                         ),
@@ -185,12 +159,10 @@ void ShowPickupAddItemBottomSheet(BuildContext context, bool isPickupAnything) {
                     onSubmitted: (value) {},
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
-                        borderRadius:
-                            BorderRadius.circular(15.0), // Rounded corners
+                        borderRadius: BorderRadius.circular(15.0), // Rounded corners
                         borderSide: BorderSide.none, // No border side
                       ),
-                      hintStyle:
-                          TextStyle(fontSize: 16, color: AppColors.blackColor1),
+                      hintStyle: TextStyle(fontSize: 16, color: AppColors.blackColor1),
                       hintText: 'Item name (required)',
                     ),
                   ),
@@ -211,8 +183,7 @@ void ShowPickupAddItemBottomSheet(BuildContext context, bool isPickupAnything) {
                     onSubmitted: (value) {},
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      hintStyle:
-                          TextStyle(fontSize: 16, color: AppColors.blackColor1),
+                      hintStyle: TextStyle(fontSize: 16, color: AppColors.blackColor1),
                       hintText: 'Item description (optional)',
                     ),
                   ),
@@ -225,16 +196,14 @@ void ShowPickupAddItemBottomSheet(BuildContext context, bool isPickupAnything) {
                   ? Row(
                       children: [
                         Container(
-                          width: 200,
-                          margin: EdgeInsets.only(top: 10, right: 20),
-                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          width: 170,
+                          margin: EdgeInsets.only(top: 10, right: 10),
+                          padding: EdgeInsets.symmetric(horizontal: 15),
                           decoration: BoxDecoration(
-                            border: Border.all(
-                                width: 1, color: AppColors.blackColor1),
+                            border: Border.all(width: 1, color: AppColors.blackColor1),
 
                             color: AppColors.whiteColor,
-                            borderRadius:
-                                BorderRadius.circular(10.0), // Circular corners
+                            borderRadius: BorderRadius.circular(10.0), // Circular corners
                           ),
                           child: Expanded(
                             child: TextField(
@@ -243,19 +212,17 @@ void ShowPickupAddItemBottomSheet(BuildContext context, bool isPickupAnything) {
                               onSubmitted: (value) {},
                               decoration: InputDecoration(
                                 border: InputBorder.none,
-                                hintStyle: TextStyle(
-                                    fontSize: 16, color: AppColors.blackColor1),
+                                hintStyle: TextStyle(fontSize: 16, color: AppColors.blackColor1),
                                 hintText: 'Estimated Price',
                               ),
                             ),
                           ),
                         ),
                         Container(
-                          margin: EdgeInsets.symmetric(horizontal: 5),
+                          margin: EdgeInsets.symmetric(horizontal: isPickupAnything ? 5 : 2),
                           decoration: BoxDecoration(
                             color: AppColors.primaryColor1,
-                            borderRadius:
-                                BorderRadius.circular(5.0), // Circular corners
+                            borderRadius: BorderRadius.circular(5.0), // Circular corners
                           ),
                           child: Icon(
                             Icons.horizontal_rule,
@@ -264,11 +231,10 @@ void ShowPickupAddItemBottomSheet(BuildContext context, bool isPickupAnything) {
                         ),
                         Text(" 2 "),
                         Container(
-                          margin: EdgeInsets.symmetric(horizontal: 5),
+                          margin: EdgeInsets.symmetric(horizontal: isPickupAnything ? 5 : 2),
                           decoration: BoxDecoration(
                             color: AppColors.primaryColor1,
-                            borderRadius:
-                                BorderRadius.circular(5.0), // Circular corners
+                            borderRadius: BorderRadius.circular(5.0), // Circular corners
                           ),
                           child: Icon(
                             Icons.add,
@@ -280,8 +246,7 @@ void ShowPickupAddItemBottomSheet(BuildContext context, bool isPickupAnything) {
                           margin: EdgeInsets.symmetric(horizontal: 5),
                           decoration: BoxDecoration(
                             color: AppColors.blackColor1,
-                            borderRadius:
-                                BorderRadius.circular(15.0), // Circular corners
+                            borderRadius: BorderRadius.circular(15.0), // Circular corners
                           ),
                           child: Icon(
                             Icons.question_mark,
@@ -306,8 +271,7 @@ void ShowPickupAddItemBottomSheet(BuildContext context, bool isPickupAnything) {
                               margin: EdgeInsets.symmetric(horizontal: 5),
                               decoration: BoxDecoration(
                                 color: AppColors.primaryColor1,
-                                borderRadius: BorderRadius.circular(
-                                    5.0), // Circular corners
+                                borderRadius: BorderRadius.circular(5.0), // Circular corners
                               ),
                               child: Icon(
                                 Icons.horizontal_rule,
@@ -319,8 +283,7 @@ void ShowPickupAddItemBottomSheet(BuildContext context, bool isPickupAnything) {
                               margin: EdgeInsets.symmetric(horizontal: 5),
                               decoration: BoxDecoration(
                                 color: AppColors.primaryColor1,
-                                borderRadius: BorderRadius.circular(
-                                    5.0), // Circular corners
+                                borderRadius: BorderRadius.circular(5.0), // Circular corners
                               ),
                               child: Icon(
                                 Icons.add,
@@ -391,15 +354,11 @@ void ShowPickupItemBottomSheet(BuildContext context) {
                   Container(
                     padding: EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      border: Border.all(
-                          width: 0.5, color: AppColors.primaryColor1),
+                      border: Border.all(width: 0.5, color: AppColors.primaryColor1),
                       color: AppColors.primaryColor1,
-                      borderRadius:
-                          BorderRadius.circular(20.0), // Circular corners
+                      borderRadius: BorderRadius.circular(20.0), // Circular corners
                     ),
-                    child: Text("Enable location",
-                        style: AppTextStyles().mediumTextStyle(
-                            fontSize: 14, color: Colors.white)),
+                    child: Text("Enable location", style: AppTextStyles().mediumTextStyle(fontSize: 14, color: Colors.white)),
                   )
                 ],
               ),
@@ -412,8 +371,7 @@ void ShowPickupItemBottomSheet(BuildContext context) {
                     decoration: BoxDecoration(
                       border: Border.all(width: 0.5, color: Colors.blue),
                       color: Colors.blue,
-                      borderRadius:
-                          BorderRadius.circular(20.0), // Circular corners
+                      borderRadius: BorderRadius.circular(20.0), // Circular corners
                     ),
                     child: Icon(
                       Icons.add,
@@ -423,9 +381,7 @@ void ShowPickupItemBottomSheet(BuildContext context) {
                   SizedBox(
                     width: 20,
                   ),
-                  Text("Add new address (Search on map)",
-                      style: AppTextStyles()
-                          .mediumTextStyle(fontSize: 16, color: Colors.black)),
+                  Text("Add new address (Search on map)", style: AppTextStyles().mediumTextStyle(fontSize: 16, color: Colors.black)),
                 ],
               ),
               Container(
@@ -445,8 +401,7 @@ void ShowPickupItemBottomSheet(BuildContext context) {
                         onSubmitted: (value) {},
                         decoration: InputDecoration(
                           border: InputBorder.none,
-                          hintStyle: TextStyle(
-                              fontSize: 16, color: AppColors.blackColor1),
+                          hintStyle: TextStyle(fontSize: 16, color: AppColors.blackColor1),
                           hintText: 'Search location from saved address',
                         ),
                       ),
@@ -457,11 +412,9 @@ void ShowPickupItemBottomSheet(BuildContext context) {
                     Container(
                       padding: EdgeInsets.all(5),
                       decoration: BoxDecoration(
-                        border: Border.all(
-                            width: 0.5, color: AppColors.primaryColor),
+                        border: Border.all(width: 0.5, color: AppColors.primaryColor),
                         color: AppColors.primaryColor,
-                        borderRadius:
-                            BorderRadius.circular(10.0), // Circular corners
+                        borderRadius: BorderRadius.circular(10.0), // Circular corners
                       ),
                       child: Icon(
                         Icons.search,
@@ -495,16 +448,12 @@ void ShowPickupItemBottomSheet(BuildContext context) {
                       child: Container(
                         padding: EdgeInsets.all(8),
                         decoration: BoxDecoration(
-                          border: Border.all(
-                              width: 0.5, color: AppColors.primaryColor1),
+                          border: Border.all(width: 0.5, color: AppColors.primaryColor1),
                           color: AppColors.primaryColor1,
-                          borderRadius:
-                              BorderRadius.circular(20.0), // Circular corners
+                          borderRadius: BorderRadius.circular(20.0), // Circular corners
                         ),
                         child: Center(
-                          child: Text("Saved Address",
-                              style: AppTextStyles().mediumTextStyle(
-                                  fontSize: 12, color: Colors.white)),
+                          child: Text("Saved Address", style: AppTextStyles().mediumTextStyle(fontSize: 12, color: Colors.white)),
                         ),
                       ),
                     ),
@@ -513,16 +462,12 @@ void ShowPickupItemBottomSheet(BuildContext context) {
                       child: Container(
                         padding: EdgeInsets.all(8),
                         decoration: BoxDecoration(
-                          border: Border.all(
-                              width: 0.5, color: AppColors.greyColor),
+                          border: Border.all(width: 0.5, color: AppColors.greyColor),
                           color: AppColors.greyColor,
-                          borderRadius:
-                              BorderRadius.circular(20.0), // Circular corners
+                          borderRadius: BorderRadius.circular(20.0), // Circular corners
                         ),
                         child: Center(
-                          child: Text("Saved Store",
-                              style: AppTextStyles().mediumTextStyle(
-                                  fontSize: 12, color: Colors.black)),
+                          child: Text("Saved Store", style: AppTextStyles().mediumTextStyle(fontSize: 12, color: Colors.black)),
                         ),
                       ),
                     ),

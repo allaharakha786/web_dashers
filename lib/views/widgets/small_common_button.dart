@@ -11,8 +11,9 @@ class SmallCommonButton extends StatelessWidget {
   bool? isBorder;
   Color? borderColor;
   Color? textColor;
+  bool? isBold;
 
-  SmallCommonButton({super.key, this.color, this.iconImageUrl, this.isIcon, this.title, this.isBorder, this.textColor, this.borderColor});
+  SmallCommonButton({super.key, this.color, this.iconImageUrl, this.isIcon, this.title, this.isBorder, this.textColor, this.isBold, this.borderColor});
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +27,11 @@ class SmallCommonButton extends StatelessWidget {
         mainAxisAlignment: isIcon ?? false ? MainAxisAlignment.center : MainAxisAlignment.start,
         children: [
           SizedBox(height: mediaQuerySize.height * 0.015.h, width: mediaQuerySize.width * 0.05.w, child: isIcon ?? false ? Image.asset(iconImageUrl ?? '') : null),
-          Text(
-            title ?? '',
-            style: AppTextStyles().lightTextStyle(color: textColor ?? AppColors.blackColor),
+          Center(
+            child: Text(
+              title ?? '',
+              style: isBold ?? false ? AppTextStyles().mediumTextStyle(fontSize: 10, color: textColor ?? AppColors.blackColor) : AppTextStyles().lightTextStyle(color: textColor ?? AppColors.blackColor),
+            ),
           )
         ],
       ),

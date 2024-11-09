@@ -7,13 +7,15 @@ class SearchCustomTextFormField extends StatelessWidget {
   final Widget? prefixIcon;
   final bool obscureText;
   bool? isBorder;
+  Color? fillColor;
+
   final TextInputType keyboardType;
   final VoidCallback? onSuffixIconPressed;
   TextEditingController? controller;
   void Function(String)? onChanged;
   bool? isPrefix;
 
-  SearchCustomTextFormField({super.key, required this.hintText, this.suffixIcon, this.prefixIcon, this.obscureText = false, this.keyboardType = TextInputType.text, this.onSuffixIconPressed, this.controller, this.onChanged, this.isPrefix, this.isBorder});
+  SearchCustomTextFormField({super.key, required this.hintText, this.suffixIcon, this.prefixIcon, this.obscureText = false, this.keyboardType = TextInputType.text, this.onSuffixIconPressed, this.controller, this.onChanged, this.isPrefix, this.isBorder, this.fillColor});
 
   @override
   Widget build(BuildContext context) {
@@ -24,14 +26,14 @@ class SearchCustomTextFormField extends StatelessWidget {
       obscureText: obscureText,
       keyboardType: keyboardType,
       decoration: InputDecoration(
-        fillColor: Colors.white,
+        fillColor: fillColor ?? Colors.white,
         filled: true,
         prefixIcon: isPrefix ?? false ? Transform.scale(scale: 0.4, child: prefixIcon) : null,
         hintText: hintText,
         hintStyle: TextStyle(fontSize: 10, fontWeight: FontWeight.w400, color: AppColors.blackColor1),
         contentPadding: EdgeInsets.all(10),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(10),
           borderSide: BorderSide(color: isBorder ?? false ? AppColors.blackColor1 : Colors.transparent),
         ),
         enabledBorder: OutlineInputBorder(

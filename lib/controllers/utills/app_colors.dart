@@ -7,8 +7,11 @@ class AppColors {
   static const Color primaryColor1 = Color(0xFFB037FF);
   static const Color ratingColor = Color(0xFFBFACC04);
 
+  static const Color lightYellowColor = Color(0xFFFBFF8B);
+
   static const Color whiteColor = Colors.white;
 
   static const Color greyColor = Color.fromARGB(255, 235, 236, 237);
   static const Color blueGrey = Color(0xFFE6E6FB);
+  static const Color textFieldColor = Color(0xFFFAFAFF);
 }

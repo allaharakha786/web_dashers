@@ -4,9 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:web_dasher/controllers/utills/app_colors.dart';
 import 'package:web_dasher/controllers/utills/app_textStyles.dart';
-import 'package:web_dasher/views/map_screen.dart';
-import 'package:web_dasher/views/signup_screen.dart';
-import 'package:web_dasher/views/splash_screen.dart';
+import 'package:web_dasher/views/screens/home_screen.dart';
+import 'package:web_dasher/views/screens/signup_screen.dart';
 import 'package:web_dasher/views/widgets/common_widgets.dart';
 
 class OnBoardingScreen extends StatefulWidget {
@@ -118,7 +117,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         ),
                         CommonButton(
                           onTap: () {
-                            Get.to(() => MapViewScreen());
+                            Get.to(() => SignupScreen());
                           },
                           title: 'Login',
                         ),
@@ -127,7 +126,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         ),
                         CommonButton(
                           onTap: () {
-                            Get.off(() => SignupScreen());
+                            Get.to(() => SignupScreen());
                           },
                           color: AppColors.primaryColor1,
                           title: 'Sign up',

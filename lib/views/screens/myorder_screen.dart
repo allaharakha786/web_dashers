@@ -11,27 +11,6 @@ class MyOrderScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        bottomNavigationBar: BottomNavigationBar(
-            showSelectedLabels: false,
-            showUnselectedLabels: false,
-            selectedItemColor: Colors.white,
-            unselectedItemColor: Colors.blue,
-            backgroundColor: AppColors.primaryColor,
-            items: [
-              BottomNavigationBarItem(
-                  backgroundColor: AppColors.primaryColor,
-                  label: "Home",
-                  icon: Icon(
-                    Icons.home_outlined,
-                  )),
-              BottomNavigationBarItem(
-                  label: "Docs", icon: Icon(Icons.document_scanner_outlined)),
-              BottomNavigationBarItem(
-                  label: "Notificaiton",
-                  icon: Icon(Icons.notifications_outlined)),
-              BottomNavigationBarItem(
-                  label: "Chat", icon: Icon(Icons.chat_outlined))
-            ]),
         appBar: AppBar(
           centerTitle: true,
           backgroundColor: AppColors.primaryColor1,
@@ -71,8 +50,7 @@ class MyOrderScreen extends StatelessWidget {
                   decoration: BoxDecoration(
                     border: Border.all(width: 0.5, color: AppColors.greyColor),
                     color: AppColors.greyColor,
-                    borderRadius:
-                        BorderRadius.circular(20.0), // Circular corners
+                    borderRadius: BorderRadius.circular(20.0), // Circular corners
                   ),
                   child: Text("All"),
                 ),
@@ -81,8 +59,7 @@ class MyOrderScreen extends StatelessWidget {
                   decoration: BoxDecoration(
                     border: Border.all(width: 0.5, color: AppColors.greyColor),
                     color: AppColors.greyColor,
-                    borderRadius:
-                        BorderRadius.circular(20.0), // Circular corners
+                    borderRadius: BorderRadius.circular(20.0), // Circular corners
                   ),
                   child: Text("Buy Anything"),
                 ),
@@ -91,8 +68,7 @@ class MyOrderScreen extends StatelessWidget {
                   decoration: BoxDecoration(
                     border: Border.all(width: 0.5, color: AppColors.greyColor),
                     color: AppColors.greyColor,
-                    borderRadius:
-                        BorderRadius.circular(20.0), // Circular corners
+                    borderRadius: BorderRadius.circular(20.0), // Circular corners
                   ),
                   child: Text("Pickup Anything"),
                 )
@@ -108,16 +84,14 @@ class MyOrderScreen extends StatelessWidget {
                   ),
                   Text(
                     "Haven't tried Mach?",
-                    style: AppTextStyles()
-                        .mediumTextStyle(fontSize: 16, color: Colors.black),
+                    style: AppTextStyles().mediumTextStyle(fontSize: 16, color: Colors.black),
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   Text(
                     "Place your first order",
-                    style: AppTextStyles().lightTextStyle(
-                        fontSize: 14, color: AppColors.blackColor),
+                    style: AppTextStyles().lightTextStyle(fontSize: 14, color: AppColors.blackColor),
                   ),
                 ],
               ),

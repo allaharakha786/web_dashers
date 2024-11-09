@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:web_dasher/controllers/utills/app_colors.dart';
-import 'package:web_dasher/views/on_boarding_screen.dart';
-import 'package:web_dasher/controllers/utills/app_colors.dart';
+import 'package:web_dasher/views/screens/on_boarding_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -21,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
         seconds: 3,
       ),
       () {
-        Get.to(() => OnBoardingScreen());
+        Get.off(() => OnBoardingScreen());
       },
     );
     super.initState();
