@@ -4,6 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:web_dasher/controllers/utills/app_colors.dart';
 import 'package:web_dasher/controllers/utills/app_textStyles.dart';
+import 'package:web_dasher/views/map_screen.dart';
+import 'package:web_dasher/views/signup_screen.dart';
 import 'package:web_dasher/views/splash_screen.dart';
 import 'package:web_dasher/views/widgets/common_widgets.dart';
 
@@ -55,15 +57,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 child: Container(
                   height: mediaQuerySize.height * 0.55.h,
                   width: mediaQuerySize.width.w,
-                  decoration: BoxDecoration(
-                      color: AppColors.whiteColor,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(40.sp),
-                          topRight: Radius.circular(40.sp))),
+                  decoration: BoxDecoration(color: AppColors.whiteColor, borderRadius: BorderRadius.only(topLeft: Radius.circular(40.sp), topRight: Radius.circular(40.sp))),
                   child: Padding(
-                    padding: EdgeInsets.only(
-                        left: mediaQuerySize.width * 0.05,
-                        right: mediaQuerySize.width * 0.05),
+                    padding: EdgeInsets.only(left: mediaQuerySize.width * 0.05, right: mediaQuerySize.width * 0.05),
                     child: Column(
                       children: [
                         DotsIndicator(
@@ -95,8 +91,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                           : _currentIndex == 4
                                               ? 'Your safety is our top priority'
                                               : '',
-                          style: AppTextStyles().boldTextStyle(
-                              fontSize: 18.sp, color: AppColors.blackColor1),
+                          style: AppTextStyles().boldTextStyle(fontSize: 18.sp, color: AppColors.blackColor1),
                         ),
                         SizedBox(
                           height: mediaQuerySize.height * 0.03.h,
@@ -122,12 +117,18 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           height: mediaQuerySize.height * 0.03.h,
                         ),
                         CommonButton(
+                          onTap: () {
+                            Get.to(() => MapViewScreen());
+                          },
                           title: 'Login',
                         ),
                         SizedBox(
                           height: mediaQuerySize.height * 0.02.h,
                         ),
                         CommonButton(
+                          onTap: () {
+                            Get.off(() => SignupScreen());
+                          },
                           color: AppColors.primaryColor1,
                           title: 'Sign up',
                         ),
@@ -140,8 +141,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                 width: mediaQuerySize.width * 0.75,
                                 child: Text(
                                   'You agree to our Terms of Service and Privacy Policy by logging in or registering.',
-                                  style: AppTextStyles()
-                                      .lightTextStyle(fontSize: 14),
+                                  style: AppTextStyles().lightTextStyle(fontSize: 14),
                                 )))
                       ],
                     ),
@@ -154,24 +154,28 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 child: Container(
                   height: mediaQuerySize.height * 0.055.h,
                   width: mediaQuerySize.width * 0.2.w,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.black),
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.black),
                   child: Center(
-                    child: GestureDetector(
-                      onTap: () {
-                        if (_currentIndex == 4) {
-                          Get.to(() => SplashScreen());
-                        }
-                        _onNext();
-                        print(_currentIndex);
-                      },
-                      child: Text(
-                        _currentIndex == 4 ? 'Next' : 'Skip',
-                        style: AppTextStyles().mediumTextStyle(
-                            color: AppColors.whiteColor, fontSize: 13.sp),
-                      ),
-                    ),
+                    child: _currentIndex == 4
+                        ? GestureDetector(
+                            onTap: () {
+                              print('Done');
+                            },
+                            child: Text(
+                              'Next',
+                              style: AppTextStyles().mediumTextStyle(color: AppColors.whiteColor, fontSize: 13.sp),
+                            ),
+                          )
+                        : GestureDetector(
+                            onTap: () {
+                              _onNext();
+                              print(_currentIndex);
+                            },
+                            child: Text(
+                              'Skip',
+                              style: AppTextStyles().mediumTextStyle(color: AppColors.whiteColor, fontSize: 13.sp),
+                            ),
+                          ),
                   ),
                 ),
               )

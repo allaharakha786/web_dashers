@@ -38,16 +38,9 @@ class _SplashScreenState extends State<SplashScreen> {
         children: [
           Expanded(
             child: Padding(
-              padding: EdgeInsets.only(
-                  top: mediaQuerySize.height * 0.1.h,
-                  left: mediaQuerySize.height * 0.1.w,
-                  right: mediaQuerySize.height * 0.1.w),
+              padding: EdgeInsets.only(top: mediaQuerySize.height * 0.1.h, left: mediaQuerySize.height * 0.1.w, right: mediaQuerySize.height * 0.1.w),
               child: Container(
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        fit: BoxFit.contain,
-                        scale: mediaQuerySize.height * 0.0015.h,
-                        image: const AssetImage('assets/pngs/logo.png'))),
+                decoration: BoxDecoration(image: DecorationImage(fit: BoxFit.contain, scale: mediaQuerySize.height * 0.0015.h, image: const AssetImage('assets/pngs/logo.png'))),
               ),
             ),
           ),
