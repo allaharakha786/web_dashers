@@ -9,6 +9,8 @@ class PickupScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size mediaQuerySize = MediaQuery.of(context).size;
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -23,104 +25,103 @@ class PickupScreen extends StatelessWidget {
             color: Colors.white,
           ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                margin: EdgeInsets.symmetric(vertical: 30, horizontal: 10),
-                child: Text("Address Info",
-                    style: AppTextStyles().mediumTextStyle()),
-              ),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                decoration: BoxDecoration(
-                  border: Border.all(width: 0.5, color: AppColors.greyColor),
-                  color: AppColors.greyColor,
-                  borderRadius: BorderRadius.circular(20.0), // Circular corners
+        body: Container(
+          height: mediaQuerySize.height,
+          width: mediaQuerySize.width,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  margin: EdgeInsets.symmetric(vertical: 30, horizontal: 10),
+                  child: Text("Address Info", style: AppTextStyles().mediumTextStyle()),
                 ),
-                child: Row(
-                  children: [
-                    Image.asset(
-                      "assets/pngs/truck1.png",
-                      width: 30,
-                      height: 30,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Expanded(
-                      child: TextField(
-                        keyboardType: TextInputType.none,
-                        textInputAction: TextInputAction.search,
-                        onTap: () {
-                          ShowPickupItemBottomSheet(context);
-                        },
-                        onChanged: (String value) {},
-                        onSubmitted: (value) {},
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintStyle: TextStyle(
-                              fontSize: 16, color: AppColors.blackColor1),
-                          hintText: 'Pickup point??',
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  decoration: BoxDecoration(
+                    border: Border.all(width: 0.5, color: AppColors.greyColor),
+                    color: AppColors.greyColor,
+                    borderRadius: BorderRadius.circular(20.0), // Circular corners
+                  ),
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        "assets/pngs/truck1.png",
+                        width: 30,
+                        height: 30,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Expanded(
+                        child: TextField(
+                          keyboardType: TextInputType.none,
+                          textInputAction: TextInputAction.search,
+                          onTap: () {
+                            ShowPickupItemBottomSheet(context);
+                          },
+                          onChanged: (String value) {},
+                          onSubmitted: (value) {},
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintStyle: TextStyle(fontSize: 16, color: AppColors.blackColor1),
+                            hintText: 'Pickup point??',
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                decoration: BoxDecoration(
-                  border: Border.all(width: 0.5, color: AppColors.greyColor),
-                  color: AppColors.greyColor,
-                  borderRadius: BorderRadius.circular(20.0), // Circular corners
+                SizedBox(
+                  height: 20,
                 ),
-                child: Row(
-                  children: [
-                    Image.asset(
-                      "assets/pngs/delivery_box.png",
-                      width: 30,
-                      height: 30,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Expanded(
-                      child: TextField(
-                        textInputAction: TextInputAction.search,
-                        onTap: () {},
-                        onChanged: (String value) {},
-                        onSubmitted: (value) {},
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintStyle: TextStyle(
-                              fontSize: 16, color: AppColors.blackColor1),
-                          hintText: 'Delivery To?',
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  decoration: BoxDecoration(
+                    border: Border.all(width: 0.5, color: AppColors.greyColor),
+                    color: AppColors.greyColor,
+                    borderRadius: BorderRadius.circular(20.0), // Circular corners
+                  ),
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        "assets/pngs/delivery_box.png",
+                        width: 30,
+                        height: 30,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Expanded(
+                        child: TextField(
+                          textInputAction: TextInputAction.search,
+                          onTap: () {},
+                          onChanged: (String value) {},
+                          onSubmitted: (value) {},
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintStyle: TextStyle(fontSize: 16, color: AppColors.blackColor1),
+                            hintText: 'Delivery To?',
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(vertical: 30, horizontal: 10),
-                child: Text("What shall we get",
-                    style: AppTextStyles()
-                        .mediumTextStyle() // TextStyle(fontSize: 18, color: Colors.black),
-                    ),
-              ),
-              CommonButton(
-                title: 'Add Item',
-                onTap: () {
-                  ShowPickupAddItemBottomSheet(context, false);
-                },
-              ),
-            ],
+                Container(
+                  margin: EdgeInsets.symmetric(vertical: 30, horizontal: 10),
+                  child: Text("What shall we get", style: AppTextStyles().mediumTextStyle() // TextStyle(fontSize: 18, color: Colors.black),
+                      ),
+                ),
+                CommonButton(
+                  title: 'Add Item',
+                  onTap: () {
+                    ShowPickupAddItemBottomSheet(context, false);
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),
