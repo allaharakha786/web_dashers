@@ -1,5 +1,8 @@
+import 'package:custom_rating_bar/custom_rating_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:web_dasher/controllers/utills/app_colors.dart';
+import 'package:web_dasher/controllers/utills/app_textStyles.dart';
 
 import 'widgets/drawer_widget.dart';
 import 'widgets/card_widget.dart';
@@ -34,8 +37,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                       Text(
                         '15A, James Street',
-                        style: TextStyle(
-                            fontSize: 13, fontWeight: FontWeight.bold),
+                        style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
                       ),
                       Icon(Icons.arrow_drop_down)
                     ],
@@ -50,9 +52,7 @@ class HomeScreen extends StatelessWidget {
                     alignment: Alignment.bottomLeft,
                     child: Text(
                       'Hello Ahmed 👋',
-                      style: TextStyle(
-                          color: Color(0xff666C89),
-                          fontWeight: FontWeight.w600),
+                      style: TextStyle(color: Color(0xff666C89), fontWeight: FontWeight.w600),
                     ),
                   ),
                 ),
@@ -81,8 +81,7 @@ class HomeScreen extends StatelessWidget {
                             ),
                             Text(
                               '     First order',
-                              style: TextStyle(
-                                  fontSize: 25, fontWeight: FontWeight.bold),
+                              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                             )
                           ],
                         ),
@@ -99,10 +98,7 @@ class HomeScreen extends StatelessWidget {
                     alignment: Alignment.bottomLeft,
                     child: Text(
                       'What you are \nlooking for today?',
-                      style: TextStyle(
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xff2F394B)),
+                      style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Color(0xff2F394B)),
                     ),
                   ),
                 ),
@@ -114,10 +110,7 @@ class HomeScreen extends StatelessWidget {
                   child: Container(
                     height: 50,
                     width: 400,
-                    decoration: BoxDecoration(
-                        color: Color(0xffB7BBBC),
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all()),
+                    decoration: BoxDecoration(color: Color(0xffB7BBBC), borderRadius: BorderRadius.circular(10), border: Border.all()),
                     child: TextFormField(
                       decoration: InputDecoration(
                           border: InputBorder.none,
@@ -126,9 +119,7 @@ class HomeScreen extends StatelessWidget {
                             child: Container(
                               height: 10,
                               width: 10,
-                              decoration: BoxDecoration(
-                                  color: Color(0xff61079C),
-                                  borderRadius: BorderRadius.circular(10)),
+                              decoration: BoxDecoration(color: Color(0xff61079C), borderRadius: BorderRadius.circular(10)),
                               child: Icon(
                                 Icons.search,
                                 color: Colors.white,
@@ -148,8 +139,7 @@ class HomeScreen extends StatelessWidget {
                       alignment: Alignment.bottomLeft,
                       child: Text(
                         'Categories',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                       )),
                 ),
                 SingleChildScrollView(
@@ -165,12 +155,7 @@ class HomeScreen extends StatelessWidget {
                               child: Container(
                                 height: 60,
                                 width: 60,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    image: DecorationImage(
-                                        fit: BoxFit.cover,
-                                        image:
-                                            AssetImage(categotyImages[index]))),
+                                decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), image: DecorationImage(fit: BoxFit.cover, image: AssetImage(categotyImages[index]))),
                               ),
                             ),
                             Text(
@@ -197,28 +182,18 @@ class HomeScreen extends StatelessWidget {
                           child: Container(
                             height: 110,
                             width: 170,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                image: DecorationImage(
-                                    fit: BoxFit.cover,
-                                    image: AssetImage(gradientImage[index]))),
+                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), image: DecorationImage(fit: BoxFit.cover, image: AssetImage(gradientImage[index]))),
                             child: Column(children: [
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
                                   ItemTitle[index],
-                                  style: TextStyle(
-                                      color: AppColors.whiteColor,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold),
+                                  style: TextStyle(color: AppColors.whiteColor, fontSize: 18, fontWeight: FontWeight.bold),
                                 ),
                               ),
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Text(ItemSubtitle[index],
-                                    style: TextStyle(
-                                        color: AppColors.whiteColor,
-                                        fontSize: 14)),
+                                child: Text(ItemSubtitle[index], style: TextStyle(color: AppColors.whiteColor, fontSize: 14)),
                               ),
                             ]),
                           ),
@@ -227,6 +202,92 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: List.generate(
+                      3,
+                      (index) => Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 2.h,
+                        ),
+                        child: GestureDetector(
+                          onTap: () {
+                            // Get.to(() => ShowEquipmentNameProfile(
+                            //       id: '',
+                            //     ));
+                          },
+                          child: Container(
+                            padding: EdgeInsets.only(right: 2.w, top: 10, bottom: 10, left: 8),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              border: Border.all(color: AppColors.blackColor),
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.1),
+                                  spreadRadius: 0,
+                                  blurRadius: 8,
+                                  offset: const Offset(0, 2),
+                                ),
+                              ],
+                            ),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Image.asset(
+                                  "assets/pngs/map_item_img.png",
+                                  height: 100,
+                                  width: 120,
+                                  fit: BoxFit.cover,
+                                ),
+                                SizedBox(width: 2.h),
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          RatingBar(
+                                            filledIcon: Icons.star,
+                                            filledColor: AppColors.ratingColor,
+                                            size: 18,
+                                            emptyIcon: Icons.star_border,
+                                            onRatingChanged: (value) => debugPrint('$value'),
+                                            initialRating: 5,
+                                            maxRating: 5,
+                                          ),
+                                          SizedBox(width: 1.h),
+                                          Text("5.0", style: AppTextStyles().lightTextStyle()),
+                                        ],
+                                      ),
+                                      SizedBox(height: 1.5.h),
+                                      Text(
+                                        "4U Store Kuwait",
+                                        style: AppTextStyles().mediumTextStyle(fontSize: 14),
+                                      ),
+                                      SizedBox(height: 1.5.h),
+                                      Text(
+                                        "A5mall, Shuwaikh industrial, Kuwait",
+                                        style: TextStyle(
+                                          fontSize: 12.sp,
+                                          color: Colors.grey,
+                                        ),
+                                        textAlign: TextAlign.left,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                )
               ],
             ),
           ),
@@ -235,10 +296,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  List<String> gradientImage = [
-    'assets/pngs/gradient_1.png',
-    'assets/pngs/gradient_2.png'
-  ];
+  List<String> gradientImage = ['assets/pngs/gradient_1.png', 'assets/pngs/gradient_2.png'];
 
   List<String> categotyImages = [
     'assets/pngs/image1.png',
@@ -256,8 +314,5 @@ class HomeScreen extends StatelessWidget {
   ];
 
   List<String> ItemTitle = ['Buy anything', 'Pickup anything'];
-  List<String> ItemSubtitle = [
-    'Shop any item you want from any store',
-    'Send items from point A to B'
-  ];
+  List<String> ItemSubtitle = ['Shop any item you want from any store', 'Send items from point A to B'];
 }
